@@ -5,23 +5,22 @@
 
 int main()
 {
-    int n, k;
-    scanf("%d %d", &n, &k);
-    int mxAnd = 0, mxOr = 0, mxXor = 0;
-
-    for(int i = 1; i <= n; i++){
-        for(int j = i + 1; j <= n; j++){
-            if(mxAnd < (i & j) && (i & j) < k)
-                mxAnd = i & j;
-            if(mxOr < (i | j) && (i | j) < k)
-                mxOr = i | j;
-            if(mxXor < (i ^ j) && (i ^ j) < k)
-                mxXor = i ^ j;
+    int n,k;
+    int maxAnd=0,maxOr=0,maxXor=0;
+    scanf("%d %d",&n, &k);
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=i+1;j<=n;j++)
+        {
+            if(maxAnd < (i&j) && (i&j) <k )
+                maxAnd=i&j;
+            if(maxOr< (i|j) && (i|j) <k)
+                maxOr=i|j;
+            if(maxXor<(i^j) && (i^j)<k)
+                maxXor=i^j;
         }
     }
-    printf("%d\n", mxAnd);
-    printf("%d\n", mxOr);
-    printf("%d\n", mxXor);
+    printf("%d\n%d\n%d\n",maxAnd,maxOr,maxXor);
 
     return 0;
 }
